@@ -980,4 +980,55 @@ body {
 
 .glow {
   filter: drop-shadow(0 0 8px rgba(0,230,168,0.6));
+
+}
+/* --- Tambahan di bagian Navbar --- */
+
+/* Default tampil di desktop */
+.top-navbar .nav-menu {
+  display: flex;
+  gap: 24px;
+  transition: max-height .3s ease;
+}
+
+/* Sembunyikan menu di mobile, tampilkan jika .active */
+@media (max-width: 900px) {
+  .top-navbar {
+    position: relative;
+    z-index: 50;
+  }
+  .nav-toggle {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  .top-navbar .nav-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    gap: 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+  }
+  .top-navbar .nav-menu.active {
+    max-height: 500px; /* atau cukup besar untuk seluruh menu */
+    padding: 16px 0;
+    border-bottom: 1px solid #ececec;
+  }
+}
+
+/* Hide toggle di desktop */
+@media (min-width: 901px) {
+  .nav-toggle {
+    display: none !important;
+  }
 }
