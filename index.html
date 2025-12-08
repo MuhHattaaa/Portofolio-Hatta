@@ -434,130 +434,10 @@
                 </div>
             </div>
 
-            <!-- KOLOM KANAN: Form dan Tabel Pengunjung -->
-            <div class="form-table-container" data-aos="fade-left">
-                <!-- Form Input Pengunjung -->
-                <div class="visitor-form-card">
-                    <h3>Tambah Data Pengunjung</h3>
-                    <p>Isi data pengunjung yang ingin ditambahkan ke tabel</p>
-                    
-                    <form id="visitorForm" class="visitor-form">
-                        <div class="form-group-new">
-                            <input type="text" id="visitorName" name="name" placeholder=" " required>
-                            <label for="visitorName">Nama Lengkap</label>
-                        </div>
-                        <div class="form-group-new">
-                            <input type="email" id="visitorEmail" name="email" placeholder=" " required>
-                            <label for="visitorEmail">Email</label>
-                        </div>
-                        <div class="form-group-new">
-                            <input type="text" id="visitorPhone" name="phone" placeholder=" ">
-                            <label for="visitorPhone">Nomor Telepon (Opsional)</label>
-                        </div>
-                        <div class="form-group-new">
-                            <textarea id="visitorMessage" name="message" rows="3" placeholder=" " required></textarea>
-                            <label for="visitorMessage">Pesan/Komentar</label>
-                        </div>
-                        <div class="form-group-new">
-                            <select id="visitorStatus" name="status">
-                                <option value="Baru">Status: Baru</option>
-                                <option value="Follow-up">Follow-up</option>
-                                <option value="Diterima">Diterima</option>
-                                <option value="Ditolak">Ditolak</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-buttons">
-                            <button type="submit" class="submit-button-new">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 5v14M5 12h14"></path>
-                                </svg>
-                                Tambah Pengunjung
-                            </button>
-                            <button type="button" id="clearForm" class="clear-button">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                                </svg>
-                                Bersihkan
-                            </button>
-                        </div>
-                    </form>
-                </div>
+            
 
                 <!-- Tabel Data Pengunjung -->
-                <div class="visitor-table-card">
-                    <div class="table-header">
-                        <h3>Data Pengunjung</h3>
-                        <div class="table-actions">
-                            <button id="refreshTable" class="action-button refresh" title="Refresh Tabel">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M23 4v6h-6M1 20v-6h6"></path>
-                                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-                                </svg>
-                            </button>
-                            <button id="exportTable" class="action-button export" title="Export ke CSV">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                    <polyline points="7 10 12 15 17 10"></polyline>
-                                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="table-wrapper">
-                        <table id="visitorTable">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Nama</th>
-                                    <th>Email</th>
-                                    <th>Telepon</th>
-                                    <th>Status</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody id="visitorTableBody">
-                                <!-- Data akan diisi oleh JavaScript -->
-                                <tr class="empty-row">
-                                    <td colspan="6" class="empty-message">
-                                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                            <circle cx="12" cy="10" r="3"></circle>
-                                        </svg>
-                                        <p>Belum ada data pengunjung</p>
-                                        <p class="sub-message">Mulai dengan menambahkan data pengunjung baru</p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <div class="table-footer">
-                        <div class="table-info">
-                            <span id="visitorCount">0</span> Pengunjung
-                        </div>
-                        <div class="table-controls">
-                            <button id="prevPage" class="page-button" disabled>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="15 18 9 12 15 6"></polyline>
-                                </svg>
-                            </button>
-                            <span id="currentPage">1</span> / <span id="totalPages">1</span>
-                            <button id="nextPage" class="page-button" disabled>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-    <!-- Project Detail Modal -->
+                
     <div id="projectModal" class="modal">
         <div class="modal-content">
             <span class="modal-close">&times;</span>
@@ -590,4 +470,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
