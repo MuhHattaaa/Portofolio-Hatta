@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portofolio Website - Showcasing my skills and projects">
+    <title>Portofolio Saya - Modern Dark Theme</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Hatta-</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Beranda</a></li>
+                <li><a href="#about" class="nav-link">Tentang</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Pengalaman</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#websites" class="nav-link">Websites</a></li>
+              
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="parallax-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="text-gradient">Halo, Saya</span>
+                <br>
+                <span class="typing-text">Muhammad Hatta</span>
+            </h1>
+            <p class="hero-subtitle">Seorang pemuda jenius dan ambisius</p>
+            <a href="#about" class="cta-button">Lihat Lebih Lanjut</a>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Tentang Saya</h2>
+            <div class="about-content">
+                <div class="about-image" data-aos="fade-right">
+                    <div class="image-wrapper">
+                        <img src="images/WhatsApp Image 2025-12-08 at 10.19.44.jpeg" alt="Professional portrait photo of a young web developer in modern casual attire with warm lighting and subtle bokeh background">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+                <div class="about-text" data-aos="fade-left">
+                    <h3>Web/App Developer & Desainer</h3>
+                    <p>Halo! Nama saya Muhammad Hatta Prima Nurrahman</p>
+                    <p>Saya adalah siswa SMK yang mempunyai passion dalam pemrograman. Saya juga senang dengan pembuatan website, dengan fokus pada desain modern dan user experience yang optimal, saya selalu berusaha menciptakan website yang tidak hanya indah dipandang, tetapi juga fungsional dan mudah digunakan.</p>
+                    <p>Saya memiliki pengetahuan yang baik dalam pemrograman, baik pemrograman python, java, maupun untuk website(HTML, CSS, dan JS). Sekarang saya tetap memiliki keinginan untuk mempelajari dunia pemrograman yang lebih kompleks dan membuat sesuatu yang bermanfaat bagi orang lain.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="3">0</span>
+                            <span class="stat-label">Proyek</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="3">0</span>
+                            <span class="stat-label">Website</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="100">0</span>
+                            <span class="stat-label">% Dedikasi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Skill Saya</h2>
+            <p class="section-subtitle" data-aos="fade-up">Keahlian - keahlian yang saya kuasai</p>
+            <div class="skills-grid">
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3>Frontend Development</h3>
+                    <p>HTML, CSS, JavaScript</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%" data-progress="90"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3>Backend Development</h3>
+                    <p>Python, Java</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 60%" data-progress="85"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="skill-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Desain Grafis</h3>
+                    <p>Canva, Adobe Photoshop</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%" data-progress="80"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="skill-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        </svg>
+                    </div>
+                    <h3>Pemecahan Masalah</h3>
+                    <p>Matematika, Informatika, Logika</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%" data-progress="88"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="skill-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3>Microsoft Office</h3>
+                    <p>Word, Excel, Powerpoint</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 92%" data-progress="92"></div>
+                    </div>
+                </div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3>Artificial Intelligence</h3>
+                    <p>Prompting, Otomasi, Machine Learning</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 60%" data-progress="45"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Pengalaman</h2>
+            <div class="experience-grid">
+                 <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Peserta PTA - 2024</h3>
+                    <p class="experience-year">SMK Negeri Pasirian</p>
+                </div>
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>LDKS - 2024</h3>
+                    <p class="experience-year">SMK Negeri Pasirian</p>
+                </div>
+
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Panitia MPLS - 2025</h3>
+                    <p class="experience-year">SMK Negeri Pasirian</p>
+                </div>
+
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Panitia PTA - 2025</h3>
+                    <p class="experience-year">SMK Negeri Pasirian</p>
+                </div>
+
+                 <div class="experience-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3>LATIKA Pelatihan TIK - 2025</h3>
+                    <p class="experience-year">UPT TIKP Jawa Timur</p>
+                </div>
+
+                 <div class="experience-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Lomba AREK AI - 2025</h3>
+                    <p class="experience-year">TIKP Jawa Timur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Proyek saya</h2>
+            <p class="section-subtitle" data-aos="fade-up">Beberapa proyek yang telah saya kerjakan</p>
+            <div class="projects-grid">
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="100" data-project-id="1">
+                    <div class="project-image">
+                        <img src="images/pkk1.jpeg">
+                        <div class="project-overlay">
+                            <button class="project-detail-btn">Lihat Detail</button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Alat Pengukur Jarak</h3>
+                        <p>Alat untuk mengukur jarak menggunakan sensor ultrasonik dengan teknologi Arduino.</p>
+                        <div class="project-tags">
+                            <span class="tag">Arduino</span>
+                            <span class="tag">C++</span>
+                            <span class="tag">Sensor</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="200" data-project-id="2">
+                    <div class="project-image">
+                        <img src="images/pkk2.jpeg" alt="Robot Avoider">
+                        <div class="project-overlay">
+                            <button class="project-detail-btn">Lihat Detail</button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Robot Avoider</h3>
+                        <p>Robot yang dapat menghindari rintangan secara otomatis dengan sistem sensor ultrasonik.</p>
+                        <div class="project-tags">
+                            <span class="tag">Robotika</span>
+                            <span class="tag">Arduino</span>
+                            <span class="tag">C++</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="300" data-project-id="3">
+                    <div class="project-image">
+                        <img src="images/pkkcover.jpeg" alt="Smarthome Device">
+                        <div class="project-overlay">
+                            <button class="project-detail-btn">Lihat Detail</button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Smarthome Device</h3>
+                        <p>Sistem smart home yang dapat dikontrol melalui aplikasi mobile dengan IoT technology.</p>
+                        <div class="project-tags">
+                            <span class="tag">IoT</span>
+                            <span class="tag">Mobile</span>
+                            <span class="tag">Automation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- File: index.html -->
+<!-- Ganti bagian websites-section dengan yang ini: -->
+<section id="websites" class="websites-section">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Website Saya</h2>
+        <p class="section-subtitle" data-aos="fade-up">Website dan platform yang saya kelola</p>
+        <div class="websites-grid">
+            <!-- Website 1: Medical Machine -->
+            <div class="website-card" data-aos="flip-left" data-aos-delay="100">
+                <div class="website-icon">
+                  <!-- Ikon hati dengan plus (medis) -->
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+    <line x1="12" y1="8" x2="12" y2="16" stroke="currentColor" stroke-width="2"></line>
+    <line x1="8" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="2"></line>
+</svg>
+                </div>
+                <h3>Medical Machine</h3>
+                <p>Platform informasi dan edukasi tentang teknologi kesehatan serta sistem pengelolaan data medis digital yang terintegrasi.</p>
+                <a href="https://hatdelfia.github.io/Mini-Medical-Machine/" class="website-link">
+                    Kunjungi Website
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Website 2: Resep Nenek -->
+            <div class="website-card" data-aos="flip-left" data-aos-delay="200">
+                <div class="website-icon">
+                  <!-- Ikon buku resep -->
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+    <line x1="10" y1="7" x2="14" y2="7"></line>
+    <line x1="10" y1="11" x2="14" y2="11"></line>
+    <line x1="10" y1="15" x2="14" y2="15"></line>
+</svg>
+                </div>
+                <h3>Resep Nenek</h3>
+                <p>Koleksi resep tradisional dan masakan khas nusantara dengan panduan langkah demi langkah yang mudah diikuti untuk semua kalangan.</p>
+                <a href="https://kulinerjava.github.io/resep-tradisional-dengan-cerita-budaya/" class="website-link">
+                    Kunjungi Website
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Website 3: Game Interactive -->
+            <div class="website-card" data-aos="flip-left" data-aos-delay="300">
+                <div class="website-icon">
+                 <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <!-- Badan Controller -->
+    <rect x="4" y="8" width="16" height="10" rx="3" stroke="currentColor" stroke-width="2"></rect>
+    
+    <!-- Tombol Arah (D-Pad) -->
+    <rect x="6" y="10" width="4" height="4" rx="1" fill="rgba(255,255,255,0.1)"></rect>
+    <line x1="8" y1="10" x2="8" y2="14" stroke="currentColor" stroke-width="1"></line>
+    <line x1="6" y1="12" x2="10" y2="12" stroke="currentColor" stroke-width="1"></line>
+    
+    <!-- Tombol Aksi -->
+    <circle cx="16" cy="11" r="2" fill="var(--accent-color)"></circle>
+    <circle cx="19" cy="13" r="2" fill="var(--primary-color)"></circle>
+    
+    <!-- Stik Analog -->
+    <circle cx="13" cy="16" r="2" fill="rgba(255,255,255,0.2)"></circle>
+    <circle cx="13" cy="16" r="1" fill="currentColor"></circle>
+    
+    <!-- LED Indicator -->
+    <circle cx="5" cy="9" r="1" fill="#00ff88"></circle>
+</svg>
+                </div>
+                <h3>Game Interactive</h3>
+                <p>Koleksi game interaktif edukatif yang dirancang untuk menghibur sekaligus meningkatkan keterampilan logika dan kreativitas pemain.</p>
+                <a href="https://muhhattaaa.github.io/Game/" class="website-link">
+                    Kunjungi Website
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Hubungi Saya</h2>
+        <p class="section-subtitle" data-aos="fade-up">Mari terhubung dan berkolaborasi</p>
+        
+        <div class="contact-content-new">
+            <!-- KOLOM KIRI: Info Kontak & Media Sosial -->
+            <div class="contact-info-new" data-aos="fade-right">
+                <div class="contact-card">
+                    <h3>Kontak & Lokasi</h3>
+                    <p class="contact-description">Saya selalu terbuka untuk diskusi project baru, peluang kreatif, atau sekadar ngobrol tentang web development!</p>
+                    
+                    <!-- Media Sosial -->
+                    <div class="social-links-new">
+                        <h4>Media Sosial & Kontak</h4>
+                        <a href="mailto:m.hattaprima@gmail.com" class="social-link-new email" aria-label="Email">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span>m.hattaprima@gmail.com</span>
+                        </a>
+
+                        <a href="tel:+6281353081629" class="social-link-new phone" aria-label="Telepon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            <span>+62 813-5308-1629</span>
+                        </a>
+
+                        <a href="https://www.instagram.com/moh__hattaa/" class="social-link-new instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                            <span>@moh__hattaa</span>
+                        </a>
+
+                        <a href="https://github.com/MuhHattaaa" class="social-link-new github" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                            <span>github.com/MuhHattaaa</span>
+                        </a>
+
+                        <a href="https://tiktok.com/@wakil_presiden_ri" class="social-link-new tiktok" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                            </svg>
+                            <span>@wakil_presiden_ri</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Lokasi -->
+                    <div class="location-map-new">
+                        <h4>📍 Lokasi Saya</h4>
+                        <div class="map-container">
+                            <!-- Ganti dengan embed Google Maps lokasi Anda -->
+                          <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d2385.503763912699!2d113.14813830458824!3d-8.180945258295182!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sid!4v1765144348771!5m2!1sen!2sid"
+                           width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KOLOM KANAN: Form dan Tabel Pengunjung -->
+            <div class="form-table-container" data-aos="fade-left">
+                <!-- Form Input Pengunjung -->
+                <div class="visitor-form-card">
+                    <h3>Tambah Data Pengunjung</h3>
+                    <p>Isi data pengunjung yang ingin ditambahkan ke tabel</p>
+                    
+                    <form id="visitorForm" class="visitor-form">
+                        <div class="form-group-new">
+                            <input type="text" id="visitorName" name="name" placeholder=" " required>
+                            <label for="visitorName">Nama Lengkap</label>
+                        </div>
+                        <div class="form-group-new">
+                            <input type="email" id="visitorEmail" name="email" placeholder=" " required>
+                            <label for="visitorEmail">Email</label>
+                        </div>
+                        <div class="form-group-new">
+                            <input type="text" id="visitorPhone" name="phone" placeholder=" ">
+                            <label for="visitorPhone">Nomor Telepon (Opsional)</label>
+                        </div>
+                        <div class="form-group-new">
+                            <textarea id="visitorMessage" name="message" rows="3" placeholder=" " required></textarea>
+                            <label for="visitorMessage">Pesan/Komentar</label>
+                        </div>
+                        <div class="form-group-new">
+                            <select id="visitorStatus" name="status">
+                                <option value="Baru">Status: Baru</option>
+                                <option value="Follow-up">Follow-up</option>
+                                <option value="Diterima">Diterima</option>
+                                <option value="Ditolak">Ditolak</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="submit" class="submit-button-new">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 5v14M5 12h14"></path>
+                                </svg>
+                                Tambah Pengunjung
+                            </button>
+                            <button type="button" id="clearForm" class="clear-button">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                                Bersihkan
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Tabel Data Pengunjung -->
+                <div class="visitor-table-card">
+                    <div class="table-header">
+                        <h3>Data Pengunjung</h3>
+                        <div class="table-actions">
+                            <button id="refreshTable" class="action-button refresh" title="Refresh Tabel">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M23 4v6h-6M1 20v-6h6"></path>
+                                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                                </svg>
+                            </button>
+                            <button id="exportTable" class="action-button export" title="Export ke CSV">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table id="visitorTable">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama</th>
+                                    <th>Email</th>
+                                    <th>Telepon</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="visitorTableBody">
+                                <!-- Data akan diisi oleh JavaScript -->
+                                <tr class="empty-row">
+                                    <td colspan="6" class="empty-message">
+                                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                            <circle cx="12" cy="10" r="3"></circle>
+                                        </svg>
+                                        <p>Belum ada data pengunjung</p>
+                                        <p class="sub-message">Mulai dengan menambahkan data pengunjung baru</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="table-footer">
+                        <div class="table-info">
+                            <span id="visitorCount">0</span> Pengunjung
+                        </div>
+                        <div class="table-controls">
+                            <button id="prevPage" class="page-button" disabled>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="15 18 9 12 15 6"></polyline>
+                                </svg>
+                            </button>
+                            <span id="currentPage">1</span> / <span id="totalPages">1</span>
+                            <button id="nextPage" class="page-button" disabled>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Project Detail Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-header">
+                <img id="modalProjectImage" src="" alt="Project Image" class="modal-image">
+            </div>
+          <!-- Cari modal-body (sekitar line 620-630) dan ubah menjadi: -->
+<div class="modal-body">
+  <h2 id="modalProjectTitle"></h2>
+  <p id="modalProjectDescription"></p>
+  
+  <!-- TAMBAHKAN: Container untuk video YouTube -->
+  <div id="modalProjectVideo" class="project-video-container"></div>
+  
+  <div class="modal-tags" id="modalProjectTags"></div>
+</div>
+                <div class="modal-tags" id="modalProjectTags"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; Muhammad Hatta 2025 Portfolio. Dibuat dengan <span class="heart">❤️</span> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
