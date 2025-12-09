@@ -1,1329 +1,2767 @@
-// ===== PROJECT DETAIL MODAL =====
-// Di bagian projectData (sekitar line 3-30), tambahkan videoId:
-const projectData = {
-  1: {
-    title: "Alat Pengukur Jarak dengan Sensor Ultrasonik",
-    description: `
-      <div class="project-detail-content">
-        <p><strong>Deskripsi Proyek:</strong> Alat Pengukur Jarak ini merupakan inovasi teknologi berbasis Arduino yang menggunakan sensor ultrasonik HC-SR04 untuk mengukur jarak dengan akurasi tinggi. Sistem ini dirancang khusus untuk aplikasi praktis dalam kehidupan sehari-hari dan industri.</p>
-        
-        <p><strong>Fitur Utama:</strong></p>
-        <ul>
-          <li>Menggunakan sensor ultrasonik HC-SR04 dengan jangkauan 2cm - 4m</li>
-          <li>Akurasi pengukuran mencapai ±0.3cm</li>
-          <li>Display LCD 16x2 untuk menampilkan hasil real-time</li>
-          <li>Indikator LED untuk jarak berbahaya (kurang dari 20cm)</li>
-          <li>Buzzer sebagai alarm peringatan jarak terlalu dekat</li>
-          <li>Konsumsi daya rendah dengan power supply 5V DC</li>
-        </ul>
-        
-        <p><strong>Teknologi yang Digunakan:</strong></p>
-        <ul>
-          <li><strong>Hardware:</strong> Arduino Uno, Sensor HC-SR04, LCD I2C, Buzzer, LED, Resistor</li>
-          <li><strong>Software:</strong> Arduino IDE, Bahasa pemrograman C++</li>
-          <li><strong>Prinsip Kerja:</strong> Mengukur waktu tempuh gelombang ultrasonik dari transmitter ke receiver</li>
-        </ul>
-        
-        <p><strong>Aplikasi Praktis:</strong></p>
-        <ul>
-          <li>Parkir mundur kendaraan</li>
-          <li>Pengukuran level cairan dalam tangki</li>
-          <li>Deteksi objek pada sistem keamanan</li>
-          <li>Alat bantu untuk tunanetra</li>
-          <li>Pengukuran dalam robotika</li>
-        </ul>
-        
-        <p><strong>Keunggulan:</strong></p>
-        <ul>
-          <li>Biaya produksi rendah (Rp 150.000 - Rp 200.000)</li>
-          <li>Mudah dioperasikan tanpa pelatihan khusus</li>
-          <li>Portabel dengan dimensi compact 10x8x5 cm</li>
-          <li>Tahan terhadap kondisi lingkungan (suhu 0-70°C)</li>
-          <li>Response time cepat (≤ 50ms)</li>
-        </ul>
-      </div>
-    `,
-    image: "images/pkk1.jpeg",
-    tags: ["Arduino", "C++", "HC-SR04", "LCD Display", "Embedded Systems", "Electronics"],
-    videoId: "qhOIErhSq5A" // Tambahkan jika ada video
-  },
-  2: {
-    title: "Robot Avoider dengan Navigasi Otonom",
-    description: `
-      <div class="project-detail-content">
-        <p><strong>Deskripsi Proyek:</strong> Robot Avoider ini adalah robot pintar yang mampu bergerak secara mandiri sambil menghindari rintangan. Menggunakan sistem sensor multi-arah, robot ini dapat menjelajahi lingkungan tanpa tabrakan, menjadikannya solusi ideal untuk berbagai aplikasi otomasi.</p>
-        
-        <p><strong>Fitur Utama:</strong></p>
-        <ul>
-          <li>3 sensor ultrasonik untuk deteksi 180° (kiri, tengah, kanan)</li>
-          <li>Algoritma decision-making untuk navigasi optimal</li>
-          <li>Motor DC dengan gearbox untuk daya dan kontrol presisi</li>
-          <li>Battery management system dengan indikator low-battery</li>
-          <li>Mode operasi: Autonomous, Manual, dan Follow-line</li>
-          <li>Kecepatan maksimal 0.5 m/s dengan akselerasi smooth</li>
-        </ul>
-        
-        <p><strong>Teknologi yang Digunakan:</strong></p>
-        <ul>
-          <li><strong>Mikrokontroler:</strong> Arduino Mega 2560</li>
-          <li><strong>Sensors:</strong> 3x HC-SR04 Ultrasonic, L298N Motor Driver</li>
-          <li><strong>Power:</strong> Li-Po 12V 2000mAh dengan charging circuit</li>
-          <li><strong>Chassis:</strong> Acrylic custom design dengan mounting points</li>
-          <li><strong>Software:</strong> Custom library untuk obstacle avoidance</li>
-        </ul>
-        
-        <p><strong>Algoritma Navigasi:</strong></p>
-        <ul>
-          <li><strong>Wall Following:</strong> Mengikuti dinding dengan jarak konstan</li>
-          <li><strong>Random Exploration:</strong> Menjelajahi area secara acak</li>
-          <li><strong>Path Planning:</strong> Mencari rute terpendek tanpa hambatan</li>
-          <li><strong>Emergency Stop:</strong> Berhenti instan ketika deteksi objek < 10cm</li>
-        </ul>
-        
-        <p><strong>Aplikasi Potensial:</strong></p>
-        <ul>
-          <li>Pembersihan ruangan otomatis (seperti vacuum robot)</li>
-          <li>Surveillance dan patroli keamanan</li>
-          <li>Delivery system dalam lingkungan terkontrol</li>
-          <li>Edukasi STEM untuk pembelajaran robotika</li>
-          <li>Platform untuk penelitian AI dan machine learning</li>
-        </ul>
-        
-        <p><strong>Spesifikasi Teknis:</strong></p>
-        <ul>
-          <li>Dimensi: 20cm x 20cm x 15cm</li>
-          <li>Berat: 1.2 kg (termasuk battery)</li>
-          <li>Operating time: 2-3 jam continuous</li>
-          <li>Jarak deteksi: 2cm - 150cm</li>
-          <li>Communication: Bluetooth HC-05 (opsional untuk remote control)</li>
-        </ul>
-      </div>
-    `,
-    image: "images/pkk2.jpeg",
-    tags: ["Robotika", "Arduino Mega", "HC-SR04", "L298N", "Autonomous Navigation", "IoT"],
-    videoId: "mklQnvWb3No"
-  },
-  3: {
-    title: "Smart Home System dengan Kontrol Mobile",
-    description: `
-      <div class="project-detail-content">
-        <p><strong>Deskripsi Proyek:</strong> Sistem Smart Home ini mengintegrasikan teknologi Internet of Things (IoT) untuk mengontrol perangkat rumah secara remote melalui smartphone. Sistem ini tidak hanya mengontrol lampu tetapi juga dapat dimodifikasi untuk berbagai perangkat elektronik lainnya.</p>
-        
-        <p><strong>Fitur Utama:</strong></p>
-        <ul>
-          <li>Kontrol lampu via aplikasi mobile (Android/iOS)</li>
-          <li>Scheduling otomatis berdasarkan waktu/jadwal</li>
-          <li>Voice control integration dengan Google Assistant</li>
-          <li>Energy monitoring untuk tracking konsumsi daya</li>
-          <li>Scene modes: Movie, Party, Sleep, Reading</li>
-          <li>Security features dengan notifikasi intrusion alert</li>
-        </ul>
-        
-        <p><strong>Arsitektur Sistem:</strong></p>
-        <ul>
-          <li><strong>Controller:</strong> NodeMCU ESP8266 dengan WiFi built-in</li>
-          <li><strong>Cloud Platform:</strong> Blynk IoT Cloud untuk management</li>
-          <li><strong>Interface:</strong> Custom mobile app dengan dashboard intuitive</li>
-          <li><strong>Actuators:</strong> Relay modules 5V untuk kontrol perangkat AC</li>
-          <li><strong>Sensors:</strong> PIR motion, DHT11 temperature/humidity</li>
-          <li><strong>Power Supply:</strong> Switching 5V/10A dengan circuit protection</li>
-        </ul>
-        
-        <p><strong>Komponen Software:</strong></p>
-        <ul>
-          <li><strong>Firmware:</strong> Arduino-based dengan OTA update capability</li>
-          <li><strong>Mobile App:</strong> React Native dengan UI/UX responsif</li>
-          <li><strong>Backend:</strong> Firebase untuk data sync dan user management</li>
-          <li><strong>API:</strong> REST API untuk integrasi third-party services</li>
-          <li><strong>Database:</strong> Cloud-based untuk logging dan analytics</li>
-        </ul>
-        
-        <p><strong>Integrasi dan Skalabilitas:</strong></p>
-        <ul>
-          <li>Support untuk 8+ devices dalam satu jaringan</li>
-          <li>Compatible dengan protokol MQTT untuk enterprise applications</li>
-          <li>Multi-user access dengan role-based permissions</li>
-          <li>Geofencing untuk trigger berbasis lokasi</li>
-          <li>IFTTT integration untuk automation workflows</li>
-          <li>Backup manual control dengan physical switches</li>
-        </ul>
-        
-        <p><strong>Manfaat Implementasi:</strong></p>
-        <ul>
-          <li>Energy saving hingga 30% dengan smart scheduling</li>
-          <li>Enhanced security dengan remote monitoring</li>
-          <li>Convenience melalui centralized control</li>
-          <li>Scalability untuk home expansion</li>
-          <li>Data analytics untuk optimizing usage patterns</li>
-          <li>Accessibility untuk elderly atau disabled users</li>
-        </ul>
-        
-        <p><strong>Rencana Pengembangan:</strong></p>
-        <ul>
-          <li>Integrasi dengan solar panel system</li>
-          <li>AI-based prediction untuk automated adjustments</li>
-          <li>Biometric access control</li>
-          <li>Water leak detection system</li>
-          <li>Smart gardening automation</li>
-          <li>Integration dengan smart appliances</li>
-        </ul>
-      </div>
-    `,
-    image: "images/pkkcover.jpeg",
-    tags: ["IoT", "ESP8266", "Blynk", "Firebase", "Mobile App", "Home Automation", "Cloud"],
-    videoId: "UwcKeQ2RMpo"
+/* ===== CSS RESET & VARIABLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #00d4ff;
+  --secondary-color: #7b2ff7;
+  --accent-color: #ff006e;
+  --bg-dark: #0a0a0f;
+  --bg-darker: #050508;
+  --bg-card: #13131a;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0b0;
+  --gradient-1: linear-gradient(135deg, #00d4ff 0%, #7b2ff7 100%);
+  --gradient-2: linear-gradient(135deg, #ff006e 0%, #ff4d00 100%);
+  --gradient-3: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+  --shadow-sm: 0 2px 10px rgba(0, 212, 255, 0.1);
+  --shadow-md: 0 4px 20px rgba(123, 47, 247, 0.2);
+  --shadow-lg: 0 10px 40px rgba(0, 212, 255, 0.3);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(10, 10, 15, 0.9);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: var(--transition);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar.scrolled {
+  background: rgba(5, 5, 8, 0.95);
+  box-shadow: var(--shadow-md);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo .logo-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: var(--transition);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-1);
+  transition: var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary-color);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--text-primary);
+  transition: var(--transition);
+  border-radius: 2px;
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 30%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(123, 47, 247, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 0, 110, 0.1) 0%, transparent 50%);
+  animation: parallaxFloat 20s ease-in-out infinite;
+}
+
+@keyframes parallaxFloat {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
   }
-};
-
-const modal = document.getElementById("projectModal");
-// Cari kode modal (sekitar line 40-60) dan ubah menjadi:
-const modalClose = document.querySelector(".modal-close");
-
-// Open modal when clicking detail button
-document.querySelectorAll(".project-detail-btn").forEach(btn => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    const projectId = btn.closest(".project-card").getAttribute("data-project-id");
-    const data = projectData[projectId];
-    
-    if (data) {
-      document.getElementById("modalProjectTitle").textContent = data.title;
-      document.getElementById("modalProjectDescription").innerHTML = data.description;
-      document.getElementById("modalProjectImage").src = data.image;
-      
-      const tagsContainer = document.getElementById("modalProjectTags");
-      tagsContainer.innerHTML = data.tags.map(tag => `<span class="tag">${tag}</span>`).join("");
-      
-      // TAMBAHKAN: Atur video YouTube jika ada
-      const videoContainer = document.getElementById("modalProjectVideo");
-      if (data.videoId && data.videoId !== "VIDEO_ID_HERE_1" && data.videoId !== "VIDEO_ID_HERE_2" && data.videoId !== "VIDEO_ID_HERE_3") {
-        videoContainer.innerHTML = `
-          <div class="video-wrapper">
-            <iframe 
-              width="100%" 
-              height="315" 
-              src="https://www.youtube.com/embed/${data.videoId}" 
-              title="YouTube video player" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-          </div>
-        `;
-        videoContainer.style.display = "block";
-      } else {
-        videoContainer.innerHTML = "";
-        videoContainer.style.display = "none";
-      }
-      
-      modal.classList.add("active");
-    }
-  });
-});
-// Close modal when clicking X
-modalClose.addEventListener("click", () => {
-  modal.classList.remove("active");
-});
-
-// Close modal when clicking outside
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.classList.remove("active");
+  50% {
+    transform: translateY(-20px) scale(1.05);
   }
-});
+}
 
-// Close modal with ESC key
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && modal.classList.contains("active")) {
-    modal.classList.remove("active");
+.hero-content {
+  text-align: center;
+  z-index: 1;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-});
-
-// ===== NAVBAR FUNCTIONALITY =====
-const navbar = document.getElementById("navbar")
-const navMenu = document.getElementById("navMenu")
-const hamburger = document.getElementById("hamburger")
-const navLinks = document.querySelectorAll(".nav-link")
-
-// Hamburger menu toggle
-hamburger.addEventListener("click", () => {
-  navMenu.classList.toggle("active")
-  hamburger.classList.toggle("active")
-})
-
-// Close menu when clicking on a link
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    navMenu.classList.remove("active")
-    hamburger.classList.remove("active")
-  })
-})
-
-// Navbar scroll effect
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add("scrolled")
-  } else {
-    navbar.classList.remove("scrolled")
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-})
-
-// ===== ACTIVE NAV LINK ON SCROLL =====
-const sections = document.querySelectorAll("section")
-
-function setActiveLink() {
-  const scrollPosition = window.scrollY + 100
-
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop
-    const sectionHeight = section.offsetHeight
-    const sectionId = section.getAttribute("id")
-
-    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-      navLinks.forEach((link) => {
-        link.classList.remove("active")
-        if (link.getAttribute("href") === `#${sectionId}`) {
-          link.classList.add("active")
-        }
-      })
-    }
-  })
 }
 
-window.addEventListener("scroll", setActiveLink)
+.hero-title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
 
-// ===== PARALLAX EFFECT =====
-const parallaxBg = document.querySelector(".parallax-bg")
+.text-gradient {
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-window.addEventListener("scroll", () => {
-  const scrolled = window.pageYOffset
-  if (parallaxBg) {
-    parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`
+.typing-text {
+  display: inline-block;
+  border-right: 3px solid var(--primary-color);
+  animation: typing 3.5s steps(15) infinite, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  0%,
+  100% {
+    width: 0;
   }
-})
-
-// ===== ANIMATED COUNTER FOR STATS =====
-function animateCounter(element, target) {
-  let current = 0
-  const increment = target / 100
-  const timer = setInterval(() => {
-    current += increment
-    if (current >= target) {
-      element.textContent = target
-      clearInterval(timer)
-    } else {
-      element.textContent = Math.floor(current)
-    }
-  }, 20)
+  50% {
+    width: 100%;
+  }
 }
 
-// ===== INTERSECTION OBSERVER FOR ANIMATIONS =====
-const observerOptions = {
-  threshold: 0.2,
-  rootMargin: "0px",
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
 }
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("aos-animate")
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+}
 
-      // Animate stats counter
-      if (entry.target.classList.contains("stat-number")) {
-        const target = Number.parseInt(entry.target.getAttribute("data-count"))
-        animateCounter(entry.target, target)
-      }
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--gradient-1);
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
 
-      // Animate skill bars
-      if (entry.target.classList.contains("skill-card")) {
-        const progressBar = entry.target.querySelector(".skill-progress")
-        if (progressBar) {
-          const width = progressBar.style.width
-          progressBar.style.width = "0"
-          setTimeout(() => {
-            progressBar.style.width = width
-          }, 100)
-        }
-      }
+.cta-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 50px rgba(0, 212, 255, 0.4);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.scroll-indicator span {
+  display: block;
+  width: 2px;
+  height: 40px;
+  background: var(--gradient-1);
+  animation: scrollDown 2s infinite;
+}
+
+@keyframes scrollDown {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+}
+
+/* ===== SECTION COMMON STYLES ===== */
+section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.section-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+  background: var(--bg-darker);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.about-image {
+  position: relative;
+}
+
+.image-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: var(--transition);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-1);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.image-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+.image-wrapper:hover .image-overlay {
+  opacity: 0.3;
+}
+
+.about-text h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.about-text p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border-radius: 15px;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.stat-number {
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  display: block;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+/* ===== SKILLS SECTION ===== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.skill-card {
+  background: var(--bg-card);
+  padding: 2rem;
+  border-radius: 20px;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gradient-1);
+  transform: scaleX(0);
+  transition: var(--transition);
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.skill-card:hover::before {
+  transform: scaleX(1);
+}
+
+.skill-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.skill-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.skill-card p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: var(--gradient-1);
+  border-radius: 10px;
+  transition: width 1s ease-out;
+}
+
+/* ===== EXPERIENCE SECTION ===== */
+.experience-section {
+  background: var(--bg-dark);
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.experience-card {
+  background: var(--bg-card);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.experience-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--primary-color);
+}
+
+.experience-year {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* ===== PROJECTS SECTION ===== */
+.projects-section {
+  background: var(--bg-darker);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.project-card {
+  background: var(--bg-card);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.project-image {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 212, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.1);
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-link {
+  padding: 1rem 2rem;
+  background: var(--text-primary);
+  color: var(--bg-dark);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.project-link:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+}
+
+.project-content {
+  padding: 2rem;
+}
+
+.project-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-content p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.project-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 0.4rem 1rem;
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--primary-color);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+/* ===== WEBSITES SECTION ===== */
+.websites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.website-card {
+  background: var(--bg-card);
+  padding: 3rem;
+  border-radius: 20px;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.website-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary-color);
+}
+
+.website-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.5rem;
+  color: var(--secondary-color);
+}
+
+.website-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.website-card p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.website-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--gradient-2);
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.website-link:hover {
+  transform: translateX(5px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+  background: var(--bg-darker);
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.contact-info h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 15px;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.social-link:hover {
+  transform: translateX(10px);
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-md);
+}
+
+.social-link svg {
+  flex-shrink: 0;
+}
+
+.social-link.email:hover {
+  background: linear-gradient(135deg, #ea4335 0%, #d33d29 100%);
+}
+
+.social-link.instagram:hover {
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-link.github:hover {
+  background: linear-gradient(135deg, #6e5494 0%, #4a3f66 100%);
+}
+
+.social-link.tiktok:hover {
+  background: linear-gradient(135deg, #00f2ea 0%, #ff0050 100%);
+}
+
+.contact-form-wrapper {
+  background: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  background: var(--bg-dark);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+
+.form-group label {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  pointer-events: none;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label {
+  top: -0.5rem;
+  left: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  background: var(--bg-card);
+  padding: 0 0.5rem;
+}
+
+.submit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: var(--gradient-1);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+}
+
+.submit-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+/* ===== CONTACT SECTION - LOKASI & TELEPON ===== */
+.social-link.phone:hover {
+    background: linear-gradient(135deg, #34a853 0%, #2e8b47 100%);
+}
+
+.location-map {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.location-map h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.location-map h4::before {
+    content: "📍";
+    font-size: 1.2rem;
+}
+
+.map-wrapper {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+}
+
+.map-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+/* Responsive untuk peta */
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
-  })
-}, observerOptions)
+    
+    .location-map {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+    }
+    
+    .map-wrapper {
+        height: 250px;
+    }
+}
 
-// Observe all animated elements
-document.querySelectorAll("[data-aos]").forEach((element) => {
-  observer.observe(element)
-})
+@media (max-width: 480px) {
+    .map-wrapper {
+        height: 200px;
+    }
+}
+/* ===== PROJECT MODAL ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  animation: fadeIn 0.3s ease-out;
+}
 
-// Observe stat numbers
-document.querySelectorAll(".stat-number").forEach((element) => {
-  observer.observe(element)
-})
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
-// Observe skill cards
-document.querySelectorAll(".skill-card").forEach((element) => {
-  observer.observe(element)
-})
+.modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-// ===== TYPING EFFECT =====
-const typingText = document.querySelector(".typing-text")
-const textArray = ["Muhammad Hatta", "Web Developer", "Designer Kreatif", "Math Enthusiast"]
-let textArrayIndex = 0
-let charIndex = 0
-let isDeleting = false
+.modal-content {
+  background: var(--bg-card);
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  animation: slideUp 0.3s ease-out;
+  position: relative;
+}
 
-function typeEffect() {
-  const currentText = textArray[textArrayIndex]
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
-  if (isDeleting) {
-    typingText.textContent = currentText.substring(0, charIndex - 1)
-    charIndex--
-  } else {
-    typingText.textContent = currentText.substring(0, charIndex + 1)
-    charIndex++
+.modal-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 10;
+}
+
+.modal-close:hover {
+  color: var(--accent-color);
+}
+
+.modal-header {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.modal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-body {
+  padding: 2.5rem;
+}
+
+.modal-body h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.modal-body p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.modal-tags {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.modal-tags .tag {
+  padding: 0.6rem 1.2rem;
+  background: rgba(0, 212, 255, 0.15);
+  color: var(--primary-color);
+  border-radius: 25px;
+  font-size: 0.95rem;
+  border: 1px solid rgba(0, 212, 255, 0.4);
+}
+
+.project-detail-btn {
+  background: var(--text-primary);
+  color: var(--bg-dark);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.95rem;
+}
+
+.project-detail-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--bg-darker);
+  padding: 2rem 0;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-content p {
+  color: var(--text-secondary);
+}
+
+.heart {
+  color: #ff006e;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
   }
 
-  let typeSpeed = isDeleting ? 50 : 100
-
-  if (!isDeleting && charIndex === currentText.length) {
-    typeSpeed = 2000
-    isDeleting = true
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false
-    textArrayIndex = (textArrayIndex + 1) % textArray.length
-    typeSpeed = 500
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 80px;
+    flex-direction: column;
+    background: rgba(5, 5, 8, 0.98);
+    width: 100%;
+    text-align: center;
+    transition: var(--transition);
+    padding: 2rem 0;
+    gap: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  setTimeout(typeEffect, typeSpeed)
-}
-
-// Start typing effect
-if (typingText) {
-  setTimeout(typeEffect, 1000)
-}
-
-// ===== SMOOTH SCROLL ENHANCEMENT =====
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault()
-    const target = document.querySelector(this.getAttribute("href"))
-    if (target) {
-      const offsetTop = target.offsetTop - 80
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth",
-      })
-    }
-  })
-})
-
-// ===== CONTACT FORM SUBMISSION =====
-const contactForm = document.getElementById("contactForm")
-
-if (contactForm) {
-  contactForm.addEventListener("submit", (e) => {
-    e.preventDefault()
-
-    // Get form values
-    const name = document.getElementById("name").value
-    const email = document.getElementById("email").value
-    const message = document.getElementById("message").value
-
-    // Simple validation
-    if (name && email && message) {
-      // Show success message
-      alert(`Terima kasih ${name}! Pesan Anda telah terkirim. Saya akan segera menghubungi Anda.`)
-
-      // Reset form
-      contactForm.reset()
-    } else {
-      alert("Mohon lengkapi semua field!")
-    }
-  })
-}
-
-// ===== CURSOR TRAIL EFFECT (OPTIONAL) =====
-document.addEventListener("mousemove", (e) => {
-  // Create cursor trail element
-  const trail = document.createElement("div")
-  trail.className = "cursor-trail"
-  trail.style.left = e.pageX + "px"
-  trail.style.top = e.pageY + "px"
-
-  document.body.appendChild(trail)
-
-  // Remove after animation
-  setTimeout(() => {
-    trail.remove()
-  }, 1000)
-})
-
-// Add cursor trail styles dynamically
-const style = document.createElement("style")
-style.textContent = `
-    .cursor-trail {
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        background: radial-gradient(circle, rgba(0, 212, 255, 0.5) 0%, transparent 70%);
-        border-radius: 50%;
-        pointer-events: none;
-        animation: trailFade 1s ease-out forwards;
-        z-index: 9999;
-    }
-    
-    @keyframes trailFade {
-        to {
-            opacity: 0;
-            transform: scale(2);
-        }
-    }
-`
-document.head.appendChild(style)
-
-// ===== PARALLAX EFFECT FOR SECTIONS =====
-window.addEventListener("scroll", () => {
-  const scrolled = window.pageYOffset
-
-  // Parallax for hero section
-  const heroSection = document.querySelector(".hero-section")
-  if (heroSection) {
-    heroSection.style.transform = `translateY(${scrolled * 0.3}px)`
+  .nav-menu.active {
+    left: 0;
   }
 
-  // Parallax for project images
-  document.querySelectorAll(".project-image img").forEach((img) => {
-    const rect = img.getBoundingClientRect()
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      const offset = (window.innerHeight - rect.top) * 0.1
-      img.style.transform = `translateY(${offset}px)`
-    }
-  })
-})
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
 
-// ===== LOADING ANIMATION =====
-window.addEventListener("load", () => {
-  document.body.style.opacity = "0"
-  setTimeout(() => {
-    document.body.style.transition = "opacity 0.5s ease-in"
-    document.body.style.opacity = "1"
-  }, 100)
-})
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
 
-// ===== VISITOR TABLE MANAGEMENT =====
-let visitors = JSON.parse(localStorage.getItem('portfolioVisitors')) || [];
-let currentPage = 1;
-const itemsPerPage = 5;
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+  }
 
-// Inisialisasi tabel pengunjung
-function initVisitorTable() {
-    const form = document.getElementById('visitorForm');
-    const clearBtn = document.getElementById('clearForm');
-    const refreshBtn = document.getElementById('refreshTable');
-    const exportBtn = document.getElementById('exportTable');
-    const prevPageBtn = document.getElementById('prevPage');
-    const nextPageBtn = document.getElementById('nextPage');
+  .hero-title {
+    font-size: 2.5rem;
+  }
 
-    if (form) {
-        form.addEventListener('submit', handleVisitorSubmit);
-    }
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
 
-    if (clearBtn) {
-        clearBtn.addEventListener('click', clearForm);
-    }
+  .section-title {
+    font-size: 2rem;
+  }
 
-    if (refreshBtn) {
-        refreshBtn.addEventListener('click', refreshTable);
-    }
+  .about-content,
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 
-    if (exportBtn) {
-        exportBtn.addEventListener('click', exportToCSV);
-    }
+  .about-stats {
+    grid-template-columns: 1fr;
+  }
 
-    if (prevPageBtn) {
-        prevPageBtn.addEventListener('click', () => changePage(currentPage - 1));
-    }
-
-    if (nextPageBtn) {
-        nextPageBtn.addEventListener('click', () => changePage(currentPage + 1));
-    }
-
-    // Load data dari localStorage
-    loadVisitors();
-    renderTable();
-    updatePagination();
+  .skills-grid,
+  .projects-grid,
+  .websites-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-// Handle form submission
-function handleVisitorSubmit(e) {
-    e.preventDefault();
-    
-    const name = document.getElementById('visitorName').value.trim();
-    const email = document.getElementById('visitorEmail').value.trim();
-    const phone = document.getElementById('visitorPhone').value.trim();
-    const message = document.getElementById('visitorMessage').value.trim();
-    const status = document.getElementById('visitorStatus').value;
-    
-    if (!name || !email || !message) {
-        showNotification('Harap isi semua field yang wajib diisi!', 'error');
-        return;
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .contact-form-wrapper {
+    padding: 1.5rem;
+  }
+}
+
+/* ===== ANIMATIONS ON SCROLL ===== */
+[data-aos] {
+  opacity: 0;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+}
+
+[data-aos="fade-up"] {
+  transform: translateY(30px);
+}
+
+[data-aos="fade-up"].aos-animate {
+  transform: translateY(0);
+}
+
+[data-aos="fade-right"] {
+  transform: translateX(-30px);
+}
+
+[data-aos="fade-right"].aos-animate {
+  transform: translateX(0);
+}
+
+[data-aos="fade-left"] {
+  transform: translateX(30px);
+}
+
+[data-aos="fade-left"].aos-animate {
+  transform: translateX(0);
+}
+
+[data-aos="zoom-in"] {
+  transform: scale(0.9);
+}
+
+[data-aos="zoom-in"].aos-animate {
+  transform: scale(1);
+}
+
+[data-aos="flip-left"] {
+  transform: perspective(1000px) rotateY(-10deg);
+}
+
+[data-aos="flip-left"].aos-animate {
+  transform: perspective(1000px) rotateY(0);
+}
+/* ===== CONTACT SECTION - NEW LAYOUT ===== */
+.contact-content-new {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+@media (max-width: 992px) {
+    .contact-content-new {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Kontak Info & Media Sosial */
+.contact-info-new {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-card {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.contact-description {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+/* Media Sosial Baru */
+.social-links-new {
+    margin-bottom: 2.5rem;
+}
+
+.social-links-new h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.social-links-new h4::before {
+    content: "👥";
+    font-size: 1rem;
+}
+
+.social-link-new {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 12px;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 0.8rem;
+}
+
+.social-link-new:hover {
+    transform: translateX(5px);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.social-link-new svg {
+    flex-shrink: 0;
+    opacity: 0.9;
+}
+
+/* Hover Colors untuk Sosial Media */
+.social-link-new.email:hover {
+    background: linear-gradient(135deg, #ea4335 0%, #d33d29 100%);
+}
+
+.social-link-new.phone:hover {
+    background: linear-gradient(135deg, #34a853 0%, #2e8b47 100%);
+}
+
+.social-link-new.instagram:hover {
+    background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-link-new.github:hover {
+    background: linear-gradient(135deg, #6e5494 0%, #4a3f66 100%);
+}
+
+.social-link-new.tiktok:hover {
+    background: linear-gradient(135deg, #00f2ea 0%, #ff0050 100%);
+}
+
+/* Lokasi Baru */
+.location-map-new {
+    margin-top: 1rem;
+}
+
+.location-map-new h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+}
+
+.map-container:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+/* Form & Tabel Container */
+.form-table-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.visitor-form-card, .visitor-table-card {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-md);
+}
+
+.visitor-form-card h3, .visitor-table-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.visitor-form-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* Form Baru */
+.visitor-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-group-new {
+    position: relative;
+}
+
+.form-group-new input,
+.form-group-new textarea,
+.form-group-new select {
+    width: 100%;
+    padding: 1rem;
+    background: var(--bg-dark);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: var(--transition);
+    font-family: inherit;
+}
+
+.form-group-new input:focus,
+.form-group-new textarea:focus,
+.form-group-new select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+
+.form-group-new label {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    pointer-events: none;
+    background: var(--bg-dark);
+    padding: 0 0.3rem;
+}
+
+.form-group-new input:focus + label,
+.form-group-new input:not(:placeholder-shown) + label,
+.form-group-new textarea:focus + label,
+.form-group-new textarea:not(:placeholder-shown) + label {
+    top: -0.6rem;
+    left: 0.7rem;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+}
+
+.form-group-new select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2300d4ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.submit-button-new, .clear-button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.submit-button-new {
+    background: var(--gradient-1);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.submit-button-new:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.clear-button {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.clear-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border-color: var(--accent-color);
+}
+
+/* Tabel Pengunjung */
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.table-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.action-button:hover {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: var(--primary-color);
+    transform: rotate(15deg);
+}
+
+.action-button.export:hover {
+    background: rgba(0, 255, 136, 0.1);
+    border-color: #00ff88;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#visitorTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+#visitorTable thead {
+    background: rgba(0, 212, 255, 0.1);
+}
+
+#visitorTable th {
+    padding: 1rem;
+    text-align: left;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+}
+
+#visitorTable td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+}
+
+#visitorTable tbody tr {
+    transition: var(--transition);
+}
+
+#visitorTable tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+#visitorTable .empty-row td {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-secondary);
+}
+
+.empty-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.empty-message svg {
+    color: var(--primary-color);
+    opacity: 0.5;
+}
+
+.sub-message {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-badge.new {
+    background: rgba(0, 212, 255, 0.15);
+    color: var(--primary-color);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.status-badge.follow-up {
+    background: rgba(255, 193, 7, 0.15);
+    color: #ffc107;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.status-badge.accepted {
+    background: rgba(0, 255, 136, 0.15);
+    color: #00ff88;
+    border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.status-badge.rejected {
+    background: rgba(255, 0, 110, 0.15);
+    color: var(--accent-color);
+    border: 1px solid rgba(255, 0, 110, 0.3);
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.edit-btn, .delete-btn {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.edit-btn {
+    background: rgba(0, 212, 255, 0.15);
+    color: var(--primary-color);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.edit-btn:hover {
+    background: rgba(0, 212, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+.delete-btn {
+    background: rgba(255, 0, 110, 0.15);
+    color: var(--accent-color);
+    border: 1px solid rgba(255, 0, 110, 0.3);
+}
+
+.delete-btn:hover {
+    background: rgba(255, 0, 110, 0.3);
+    transform: translateY(-1px);
+}
+
+/* Table Footer */
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.table-info {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.table-info span {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.table-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.page-button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.page-button:hover:not(:disabled) {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: var(--primary-color);
+}
+
+.page-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-card, .visitor-form-card, .visitor-table-card {
+        padding: 1.5rem;
     }
     
-    const visitor = {
-        id: Date.now(),
-        name,
-        email,
-        phone: phone || 'Tidak diisi',
-        message,
-        status,
-        date: new Date().toLocaleString('id-ID'),
-        timestamp: Date.now()
-    };
-    
-    visitors.unshift(visitor); // Tambah di awal array
-    saveVisitors();
-    renderTable();
-    updatePagination();
-    showNotification(`Data ${name} berhasil ditambahkan!`, 'success');
-    e.target.reset();
-}
-
-// Clear form
-function clearForm() {
-    document.getElementById('visitorForm').reset();
-    showNotification('Form telah dibersihkan', 'info');
-}
-
-// Refresh table
-function refreshTable() {
-    loadVisitors();
-    renderTable();
-    updatePagination();
-    showNotification('Tabel diperbarui', 'info');
-}
-
-// Export to CSV
-function exportToCSV() {
-    if (visitors.length === 0) {
-        showNotification('Tidak ada data untuk diexport', 'error');
-        return;
+    .contact-content-new {
+        gap: 1.5rem;
     }
     
-    const headers = ['No', 'Nama', 'Email', 'Telepon', 'Pesan', 'Status', 'Tanggal'];
-    const csvRows = [headers.join(',')];
-    
-    visitors.forEach((visitor, index) => {
-        const row = [
-            index + 1,
-            `"${visitor.name}"`,
-            `"${visitor.email}"`,
-            `"${visitor.phone}"`,
-            `"${visitor.message.replace(/"/g, '""')}"`,
-            visitor.status,
-            `"${visitor.date}"`
-        ];
-        csvRows.push(row.join(','));
-    });
-    
-    const csvString = csvRows.join('\n');
-    const blob = new Blob([csvString], { type: 'text/csv' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    
-    a.href = url;
-    a.download = `pengunjung-portfolio_${new Date().toISOString().split('T')[0]}.csv`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    window.URL.revokeObjectURL(url);
-    
-    showNotification('Data berhasil diexport ke CSV', 'success');
-}
-
-// Render table
-function renderTable() {
-    const tbody = document.getElementById('visitorTableBody');
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const pageVisitors = visitors.slice(startIndex, endIndex);
-    
-    if (visitors.length === 0) {
-        tbody.innerHTML = `
-            <tr class="empty-row">
-                <td colspan="6" class="empty-message">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    <p>Belum ada data pengunjung</p>
-                    <p class="sub-message">Mulai dengan menambahkan data pengunjung baru</p>
-                </td>
-            </tr>
-        `;
-        return;
+    .form-buttons {
+        flex-direction: column;
     }
     
-    let html = '';
-    
-    pageVisitors.forEach((visitor, index) => {
-        const globalIndex = startIndex + index + 1;
-        const statusClass = getStatusClass(visitor.status);
-        
-        html += `
-            <tr data-id="${visitor.id}">
-                <td>${globalIndex}</td>
-                <td>
-                    <div class="visitor-name">${visitor.name}</div>
-                    <div class="visitor-date">${visitor.date}</div>
-                </td>
-                <td>${visitor.email}</td>
-                <td>${visitor.phone}</td>
-                <td><span class="status-badge ${statusClass}">${visitor.status}</span></td>
-                <td>
-                    <div class="action-buttons">
-                        <button class="edit-btn" onclick="editVisitor(${visitor.id})">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                            </svg>
-                            Edit
-                        </button>
-                        <button class="delete-btn" onclick="deleteVisitor(${visitor.id})">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 6h18"></path>
-                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                                <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                            </svg>
-                            Hapus
-                        </button>
-                    </div>
-                </td>
-            </tr>
-        `;
-    });
-    
-    tbody.innerHTML = html;
-    document.getElementById('visitorCount').textContent = visitors.length;
-}
-
-// Get status class
-function getStatusClass(status) {
-    const statusMap = {
-        'Baru': 'new',
-        'Follow-up': 'follow-up',
-        'Diterima': 'accepted',
-        'Ditolak': 'rejected'
-    };
-    return statusMap[status] || 'new';
-}
-
-// Edit visitor
-function editVisitor(id) {
-    const visitor = visitors.find(v => v.id === id);
-    if (!visitor) return;
-    
-    document.getElementById('visitorName').value = visitor.name;
-    document.getElementById('visitorEmail').value = visitor.email;
-    document.getElementById('visitorPhone').value = visitor.phone;
-    document.getElementById('visitorMessage').value = visitor.message;
-    document.getElementById('visitorStatus').value = visitor.status;
-    
-    // Ubah tombol submit untuk edit
-    const form = document.getElementById('visitorForm');
-    const submitBtn = form.querySelector('.submit-button-new');
-    
-    submitBtn.innerHTML = `
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
-            <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
-        </svg>
-        Update Data
-    `;
-    
-    // Simpan ID visitor yang sedang diedit
-    form.dataset.editingId = id;
-    
-    // Ubah event listener
-    form.removeEventListener('submit', handleVisitorSubmit);
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const name = document.getElementById('visitorName').value.trim();
-        const email = document.getElementById('visitorEmail').value.trim();
-        const phone = document.getElementById('visitorPhone').value.trim();
-        const message = document.getElementById('visitorMessage').value.trim();
-        const status = document.getElementById('visitorStatus').value;
-        
-        if (!name || !email || !message) {
-            showNotification('Harap isi semua field yang wajib diisi!', 'error');
-            return;
-        }
-        
-        const index = visitors.findIndex(v => v.id === id);
-        if (index !== -1) {
-            visitors[index] = {
-                ...visitors[index],
-                name,
-                email,
-                phone: phone || 'Tidak diisi',
-                message,
-                status
-            };
-            
-            saveVisitors();
-            renderTable();
-            showNotification(`Data ${name} berhasil diperbarui!`, 'success');
-            
-            // Reset form
-            form.reset();
-            delete form.dataset.editingId;
-            
-            // Kembalikan tombol ke semula
-            submitBtn.innerHTML = `
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12h14"></path>
-                </svg>
-                Tambah Pengunjung
-            `;
-            
-            // Kembalikan event listener
-            form.removeEventListener('submit', arguments.callee);
-            form.addEventListener('submit', handleVisitorSubmit);
-        }
-    });
-    
-    showNotification(`Mengedit data: ${visitor.name}`, 'info');
-}
-
-// Delete visitor
-function deleteVisitor(id) {
-    if (!confirm('Apakah Anda yakin ingin menghapus data ini?')) {
-        return;
+    .social-link-new {
+        padding: 0.8rem 1rem;
     }
     
-    const visitor = visitors.find(v => v.id === id);
-    if (!visitor) return;
-    
-    visitors = visitors.filter(v => v.id !== id);
-    saveVisitors();
-    
-    // Jika halaman terakhir hanya memiliki 1 item, kembali ke halaman sebelumnya
-    const totalPages = Math.ceil(visitors.length / itemsPerPage);
-    if (currentPage > totalPages) {
-        currentPage = Math.max(1, totalPages);
+    .map-container {
+        height: 250px;
     }
     
-    renderTable();
-    updatePagination();
-    showNotification(`Data ${visitor.name} berhasil dihapus`, 'success');
-}
-
-// Change page
-function changePage(page) {
-    const totalPages = Math.ceil(visitors.length / itemsPerPage);
-    
-    if (page < 1 || page > totalPages) return;
-    
-    currentPage = page;
-    renderTable();
-    updatePagination();
-}
-
-// Update pagination
-function updatePagination() {
-    const totalPages = Math.ceil(visitors.length / itemsPerPage);
-    const prevBtn = document.getElementById('prevPage');
-    const nextBtn = document.getElementById('nextPage');
-    const currentPageSpan = document.getElementById('currentPage');
-    const totalPagesSpan = document.getElementById('totalPages');
-    
-    currentPageSpan.textContent = currentPage;
-    totalPagesSpan.textContent = totalPages;
-    
-    prevBtn.disabled = currentPage === 1;
-    nextBtn.disabled = currentPage === totalPages || totalPages === 0;
-}
-
-// Save visitors to localStorage
-function saveVisitors() {
-    localStorage.setItem('portfolioVisitors', JSON.stringify(visitors));
-}
-
-// Load visitors from localStorage
-function loadVisitors() {
-    const stored = localStorage.getItem('portfolioVisitors');
-    visitors = stored ? JSON.parse(stored) : [];
-}
-
-// Show notification
-function showNotification(message, type = 'info') {
-    // Buat elemen notifikasi
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                ${type === 'success' ? '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>' : 
-                  type === 'error' ? '<circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>' :
-                  '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>'}
-            </svg>
-            <span>${message}</span>
-        </div>
-    `;
-    
-    // Tambahkan ke body
-    document.body.appendChild(notification);
-    
-    // Animasi masuk
-    setTimeout(() => notification.classList.add('show'), 10);
-    
-    // Hapus setelah 3 detik
-    setTimeout(() => {
-        notification.classList.remove('show');
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.parentNode.removeChild(notification);
-            }
-        }, 300);
-    }, 3000);
-}
-
-// Add notification styles
-function addNotificationStyles() {
-    const style = document.createElement('style');
-    style.textContent = `
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: var(--shadow-lg);
-            z-index: 9999;
-            transform: translateX(120%);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            min-width: 300px;
-            max-width: 400px;
-        }
-        
-        .notification.show {
-            transform: translateX(0);
-        }
-        
-        .notification.success {
-            border-left: 4px solid #00ff88;
-        }
-        
-        .notification.error {
-            border-left: 4px solid #ff006e;
-        }
-        
-        .notification.info {
-            border-left: 4px solid #00d4ff;
-        }
-        
-        .notification-content {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: var(--text-primary);
-        }
-        
-        .notification-content svg {
-            flex-shrink: 0;
-        }
-        
-        .notification.success svg {
-            color: #00ff88;
-        }
-        
-        .notification.error svg {
-            color: #ff006e;
-        }
-        
-        .notification.info svg {
-            color: #00d4ff;
-        }
-    `;
-    document.head.appendChild(style);
-}
-
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    // Inisialisasi tabel pengunjung
-    initVisitorTable();
-    
-    // Tambahkan styles notifikasi
-    addNotificationStyles();
-    
-    // Tambahkan beberapa data dummy untuk contoh (opsional)
-    if (visitors.length === 0) {
-        const dummyVisitors = [
-            {
-                id: 1,
-                name: 'Budi Santoso',
-                email: 'budi.santoso@example.com',
-                phone: '+62 812-3456-7891',
-                message: 'Sangat tertarik dengan project Robot Avoider Anda!',
-                status: 'Baru',
-                date: new Date().toLocaleString('id-ID'),
-                timestamp: Date.now()
-            },
-            {
-                id: 2,
-                name: 'Sari Dewi',
-                email: 'sari.dewi@example.com',
-                phone: '+62 823-4567-8902',
-                message: 'Portfolio website Anda sangat inspiratif!',
-                status: 'Follow-up',
-                date: new Date(Date.now() - 86400000).toLocaleString('id-ID'),
-                timestamp: Date.now() - 86400000
-            }
-        ];
-        
-        visitors = dummyVisitors;
-        saveVisitors();
-        renderTable();
-        updatePagination();
-    }
-});
-
-// ===== VISITOR TABLE FOR COMPACT LAYOUT =====
-function initCompactVisitorTable() {
-    const form = document.getElementById('visitorForm');
-    const clearBtn = document.getElementById('clearForm');
-    const refreshBtn = document.getElementById('refreshTable');
-    const exportBtn = document.getElementById('exportTable');
-    const prevBtn = document.getElementById('prevPageCompact');
-    const nextBtn = document.getElementById('nextPageCompact');
-
-    if (form) {
-        form.addEventListener('submit', handleCompactVisitorSubmit);
-    }
-
-    if (clearBtn) {
-        clearBtn.addEventListener('click', () => {
-            form.reset();
-            showNotification('Form telah direset', 'info');
-        });
-    }
-
-    if (refreshBtn) {
-        refreshBtn.addEventListener('click', refreshCompactTable);
-    }
-
-    if (exportBtn) {
-        exportBtn.addEventListener('click', exportCompactToCSV);
-    }
-
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => changeCompactPage(currentPage - 1));
-    }
-
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => changeCompactPage(currentPage + 1));
-    }
-
-    renderCompactTable();
-    updateCompactPagination();
-}
-
-function handleCompactVisitorSubmit(e) {
-    e.preventDefault();
-    
-    const name = document.getElementById('visitorName').value.trim();
-    const email = document.getElementById('visitorEmail').value.trim();
-    const phone = document.getElementById('visitorPhone').value.trim();
-    const message = document.getElementById('visitorMessage').value.trim();
-    const status = document.getElementById('visitorStatus').value;
-    
-    if (!name || !email || !message) {
-        showNotification('Harap isi semua field yang wajib diisi!', 'error');
-        return;
+    .table-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
     }
     
-    const visitor = {
-        id: Date.now(),
-        name,
-        email,
-        phone: phone || 'Tidak diisi',
-        message,
-        status,
-        date: new Date().toLocaleString('id-ID'),
-        timestamp: Date.now()
-    };
-    
-    visitors.unshift(visitor);
-    saveVisitors();
-    renderCompactTable();
-    updateCompactPagination();
-    showNotification(`Data ${name} berhasil ditambahkan!`, 'success');
-    e.target.reset();
-}
-
-function renderCompactTable() {
-    const tbody = document.getElementById('visitorTableBodyCompact');
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const pageVisitors = visitors.slice(startIndex, endIndex);
-    
-    if (visitors.length === 0) {
-        tbody.innerHTML = `
-            <tr class="empty-message-row">
-                <td colspan="5" class="empty-table-message">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    <p>Belum ada data pengunjung</p>
-                    <p class="sub-text">Tambahkan data pengunjung baru</p>
-                </td>
-            </tr>
-        `;
-        return;
+    .table-actions {
+        align-self: flex-end;
     }
     
-    let html = '';
-    
-    pageVisitors.forEach((visitor, index) => {
-        const globalIndex = startIndex + index + 1;
-        const statusClass = getStatusClass(visitor.status) + '-compact';
-        
-        html += `
-            <tr data-id="${visitor.id}">
-                <td>${globalIndex}</td>
-                <td>
-                    <div class="visitor-name">${visitor.name}</div>
-                    <div class="visitor-date-small">${visitor.date.split(',')[0]}</div>
-                </td>
-                <td>${visitor.email}</td>
-                <td><span class="status-badge-compact ${statusClass}">${visitor.status}</span></td>
-                <td>
-                    <div class="table-actions-compact">
-                        <button class="action-btn-compact edit" onclick="editCompactVisitor(${visitor.id})" title="Edit">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                            </svg>
-                        </button>
-                        <button class="action-btn-compact delete" onclick="deleteCompactVisitor(${visitor.id})" title="Hapus">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 6h18"></path>
-                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                                <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </td>
-            </tr>
-        `;
-    });
-    
-    tbody.innerHTML = html;
-    document.getElementById('visitorCountCompact').textContent = visitors.length;
-}
-
-function editCompactVisitor(id) {
-    const visitor = visitors.find(v => v.id === id);
-    if (!visitor) return;
-    
-    // Isi form dengan data visitor
-    document.getElementById('visitorName').value = visitor.name;
-    document.getElementById('visitorEmail').value = visitor.email;
-    document.getElementById('visitorPhone').value = visitor.phone === 'Tidak diisi' ? '' : visitor.phone;
-    document.getElementById('visitorMessage').value = visitor.message;
-    document.getElementById('visitorStatus').value = visitor.status;
-    
-    // Ubah form untuk mode edit
-    const form = document.getElementById('visitorForm');
-    const submitBtn = form.querySelector('.submit-button-compact');
-    
-    submitBtn.innerHTML = `
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
-            <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
-        </svg>
-        Update Data
-    `;
-    
-    // Simpan ID visitor yang diedit
-    form.dataset.editingId = id;
-    
-    // Ubah event listener
-    form.removeEventListener('submit', handleCompactVisitorSubmit);
-    form.addEventListener('submit', function handleEdit(e) {
-        e.preventDefault();
-        
-        const name = document.getElementById('visitorName').value.trim();
-        const email = document.getElementById('visitorEmail').value.trim();
-        const phone = document.getElementById('visitorPhone').value.trim();
-        const message = document.getElementById('visitorMessage').value.trim();
-        const status = document.getElementById('visitorStatus').value;
-        
-        const index = visitors.findIndex(v => v.id === id);
-        if (index !== -1) {
-            visitors[index] = {
-                ...visitors[index],
-                name,
-                email,
-                phone: phone || 'Tidak diisi',
-                message,
-                status,
-                date: new Date().toLocaleString('id-ID')
-            };
-            
-            saveVisitors();
-            renderCompactTable();
-            updateCompactPagination();
-            showNotification(`Data ${name} berhasil diperbarui!`, 'success');
-            
-            // Reset form
-            form.reset();
-            delete form.dataset.editingId;
-            
-            // Kembalikan tombol
-            submitBtn.innerHTML = `
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12h14"></path>
-                </svg>
-                Tambah Data
-            `;
-            
-            // Kembalikan event listener
-            form.removeEventListener('submit', handleEdit);
-            form.addEventListener('submit', handleCompactVisitorSubmit);
-        }
-    });
-    
-    showNotification(`Mengedit data: ${visitor.name}`, 'info');
-}
-
-function deleteCompactVisitor(id) {
-    if (!confirm('Apakah Anda yakin ingin menghapus data ini?')) {
-        return;
+    .table-footer {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
     }
     
-    const visitor = visitors.find(v => v.id === id);
-    if (!visitor) return;
-    
-    visitors = visitors.filter(v => v.id !== id);
-    saveVisitors();
-    
-    // Adjust page jika perlu
-    const totalPages = Math.ceil(visitors.length / itemsPerPage);
-    if (currentPage > totalPages) {
-        currentPage = Math.max(1, totalPages);
+    .table-controls {
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 480px) {
+    .action-buttons {
+        flex-direction: column;
     }
     
-    renderCompactTable();
-    updateCompactPagination();
-    showNotification(`Data ${visitor.name} berhasil dihapus`, 'success');
+    .edit-btn, .delete-btn {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
-function refreshCompactTable() {
-    loadVisitors();
-    renderCompactTable();
-    updateCompactPagination();
-    showNotification('Tabel diperbarui', 'info');
+/* ===== RESTRUCTURED CONTACT LAYOUT ===== */
+.restructured-contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2.5rem;
+    margin-top: 2rem;
 }
 
-function exportCompactToCSV() {
-    if (visitors.length === 0) {
-        showNotification('Tidak ada data untuk diexport', 'error');
-        return;
+@media (max-width: 1024px) {
+    .restructured-contact-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* ===== LEFT COLUMN - Kontak & Lokasi ===== */
+.left-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-location-card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 100%;
+}
+
+.card-header h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color);
+}
+
+.card-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Media Sosial Grid */
+.media-social-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.media-social-section h4::before {
+    content: "👥";
+    font-size: 1rem;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: var(--transition);
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.social-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.social-item svg {
+    flex-shrink: 0;
+    color: var(--primary-color);
+}
+
+.social-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    overflow: hidden;
+}
+
+.social-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.social-value {
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Hover colors untuk social items */
+.social-item.email:hover {
+    background: linear-gradient(135deg, rgba(234, 67, 53, 0.1) 0%, rgba(211, 61, 41, 0.1) 100%);
+    border-color: #ea4335;
+}
+
+.social-item.phone:hover {
+    background: linear-gradient(135deg, rgba(52, 168, 83, 0.1) 0%, rgba(46, 139, 71, 0.1) 100%);
+    border-color: #34a853;
+}
+
+.social-item.instagram:hover {
+    background: linear-gradient(135deg, rgba(240, 148, 51, 0.1) 0%, rgba(230, 104, 60, 0.1) 25%, rgba(220, 39, 67, 0.1) 50%, rgba(204, 35, 102, 0.1) 75%, rgba(188, 24, 136, 0.1) 100%);
+    border-color: #dc2743;
+}
+
+.social-item.github:hover {
+    background: linear-gradient(135deg, rgba(110, 84, 148, 0.1) 0%, rgba(74, 63, 102, 0.1) 100%);
+    border-color: #6e5494;
+}
+
+/* Lokasi di samping Media Sosial */
+.location-side-section {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.location-side-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.compact-map {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.compact-map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+.location-info {
+    text-align: center;
+}
+
+.location-info strong {
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.location-detail {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+/* ===== RIGHT COLUMN - Form dan Tabel Side-by-Side ===== */
+.right-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-table-side {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    height: 100%;
+}
+
+@media (max-width: 1200px) {
+    .form-table-side {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Form Input Section */
+.form-input-section {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 1.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-md);
+}
+
+.form-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.form-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.visitor-form-compact {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group-compact {
+    position: relative;
+}
+
+.form-group-compact input,
+.form-group-compact textarea,
+.form-group-compact select {
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--bg-dark);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    transition: var(--transition);
+    font-family: inherit;
+}
+
+.form-group-compact input:focus,
+.form-group-compact textarea:focus,
+.form-group-compact select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.1);
+}
+
+.form-group-compact label {
+    position: absolute;
+    left: 0.8rem;
+    top: 0.8rem;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    pointer-events: none;
+    background: var(--bg-dark);
+    padding: 0 0.3rem;
+    font-size: 0.85rem;
+}
+
+.form-group-compact input:focus + label,
+.form-group-compact input:not(:placeholder-shown) + label,
+.form-group-compact textarea:focus + label,
+.form-group-compact textarea:not(:placeholder-shown) + label {
+    top: -0.6rem;
+    left: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--primary-color);
+}
+
+.form-group-compact select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2300d4ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    background-size: 1rem;
+}
+
+.form-actions-compact {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.submit-button-compact,
+.clear-button-compact {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.submit-button-compact {
+    background: var(--gradient-1);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.submit-button-compact:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.clear-button-compact {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.clear-button-compact:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border-color: var(--accent-color);
+}
+
+/* Table Display Section */
+.table-display-section {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 1.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+}
+
+.table-header-compact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.table-header-compact h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.table-tools {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tool-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tool-btn:hover {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: var(--primary-color);
+    transform: rotate(15deg);
+}
+
+.table-container-compact {
+    flex: 1;
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#visitorTableCompact {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+#visitorTableCompact thead {
+    background: rgba(0, 212, 255, 0.08);
+}
+
+#visitorTableCompact th {
+    padding: 0.8rem;
+    text-align: left;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+}
+
+#visitorTableCompact td {
+    padding: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+#visitorTableCompact tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+#visitorTableCompact .empty-message-row td {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--text-secondary);
+}
+
+.empty-table-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.empty-table-message svg {
+    color: var(--primary-color);
+    opacity: 0.5;
+}
+
+.sub-text {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* Status badges untuk tabel */
+.status-badge-compact {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-badge-compact.new {
+    background: rgba(0, 212, 255, 0.15);
+    color: var(--primary-color);
+}
+
+.status-badge-compact.follow-up {
+    background: rgba(255, 193, 7, 0.15);
+    color: #ffc107;
+}
+
+.status-badge-compact.accepted {
+    background: rgba(0, 255, 136, 0.15);
+    color: #00ff88;
+}
+
+.status-badge-compact.rejected {
+    background: rgba(255, 0, 110, 0.15);
+    color: var(--accent-color);
+}
+
+.action-col {
+    width: 100px;
+}
+
+/* Table actions */
+.table-actions-compact {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.action-btn-compact {
+    padding: 0.3rem 0.6rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.action-btn-compact.edit {
+    background: rgba(0, 212, 255, 0.15);
+    color: var(--primary-color);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.action-btn-compact.edit:hover {
+    background: rgba(0, 212, 255, 0.3);
+}
+
+.action-btn-compact.delete {
+    background: rgba(255, 0, 110, 0.15);
+    color: var(--accent-color);
+    border: 1px solid rgba(255, 0, 110, 0.3);
+}
+
+.action-btn-compact.delete:hover {
+    background: rgba(255, 0, 110, 0.3);
+}
+
+/* Table Footer */
+.table-footer-compact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.table-stats {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.table-stats span {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.table-pagination {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.page-nav {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.page-nav:hover:not(:disabled) {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: var(--primary-color);
+}
+
+.page-nav:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.page-info {
+    margin: 0 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .restructured-contact-layout {
+        gap: 1.5rem;
     }
     
-    const headers = ['No', 'Nama', 'Email', 'Telepon', 'Pesan', 'Status', 'Tanggal'];
-    const csvRows = [headers.join(',')];
-    
-    visitors.forEach((visitor, index) => {
-        const row = [
-            index + 1,
-            `"${visitor.name}"`,
-            `"${visitor.email}"`,
-            `"${visitor.phone}"`,
-            `"${visitor.message.replace(/"/g, '""')}"`,
-            visitor.status,
-            `"${visitor.date}"`
-        ];
-        csvRows.push(row.join(','));
-    });
-    
-    const csvString = csvRows.join('\n');
-    const blob = new Blob([csvString], { type: 'text/csv' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    
-    a.href = url;
-    a.download = `data-pengunjung_${new Date().toISOString().split('T')[0]}.csv`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    window.URL.revokeObjectURL(url);
-    
-    showNotification('Data berhasil diexport ke CSV', 'success');
-}
-
-function changeCompactPage(page) {
-    const totalPages = Math.ceil(visitors.length / itemsPerPage);
-    
-    if (page < 1 || page > totalPages) return;
-    
-    currentPage = page;
-    renderCompactTable();
-    updateCompactPagination();
-}
-
-function updateCompactPagination() {
-    const totalPages = Math.ceil(visitors.length / itemsPerPage);
-    const prevBtn = document.getElementById('prevPageCompact');
-    const nextBtn = document.getElementById('nextPageCompact');
-    const currentPageSpan = document.getElementById('currentPageCompact');
-    const totalPagesSpan = document.getElementById('totalPagesCompact');
-    
-    if (currentPageSpan) currentPageSpan.textContent = currentPage;
-    if (totalPagesSpan) totalPagesSpan.textContent = totalPages;
-    
-    if (prevBtn) prevBtn.disabled = currentPage === 1;
-    if (nextBtn) nextBtn.disabled = currentPage === totalPages || totalPages === 0;
-}
-
-// Initialize compact table when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize the compact visitor table
-    initCompactVisitorTable();
-    
-    // Load initial data jika kosong
-    if (visitors.length === 0) {
-        const dummyVisitors = [
-            {
-                id: 1,
-                name: 'Budi Santoso',
-                email: 'budi.santoso@example.com',
-                phone: '+62 812-3456-7891',
-                message: 'Sangat tertarik dengan project Robot Avoider Anda!',
-                status: 'Baru',
-                date: new Date().toLocaleString('id-ID'),
-                timestamp: Date.now()
-            },
-            {
-                id: 2,
-                name: 'Sari Dewi',
-                email: 'sari.dewi@example.com',
-                phone: '+62 823-4567-8902',
-                message: 'Portfolio website Anda sangat inspiratif!',
-                status: 'Follow-up',
-                date: new Date(Date.now() - 86400000).toLocaleString('id-ID'),
-                timestamp: Date.now() - 86400000
-            }
-        ];
-        
-        visitors = dummyVisitors;
-        saveVisitors();
-        renderCompactTable();
-        updateCompactPagination();
+    .contact-location-card,
+    .form-input-section,
+    .table-display-section {
+        padding: 1.5rem;
     }
-});
+    
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .compact-map {
+        height: 180px;
+    }
+    
+    .form-actions-compact {
+        flex-direction: column;
+    }
+    
+    .table-header-compact {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .table-tools {
+        align-self: flex-end;
+    }
+    
+    .table-footer-compact {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .table-pagination {
+        align-self: flex-end;
+    }
+}
 
-console.log("Portfolio website loaded successfully! ✨")
+@media (max-width: 480px) {
+    .contact-location-card,
+    .form-input-section,
+    .table-display-section {
+        padding: 1.2rem;
+    }
+    
+    .social-item {
+        padding: 0.8rem;
+    }
+    
+    .compact-map {
+        height: 150px;
+    }
+    
+    .table-actions-compact {
+        flex-direction: column;
+    }
+}
+
+/* ===== PROJECT VIDEO STYLES ===== */
+.project-video-container {
+  margin: 2rem 0;
+  display: none; /* Awalnya disembunyikan, akan ditampilkan jika ada video */
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--bg-darker);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Responsive video */
+@media (max-width: 768px) {
+  .video-wrapper {
+    padding-bottom: 75%; /* 4:3 untuk mobile */
+  }
+}
+
+/* Tambahkan di style.css */
+.project-detail-content {
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.project-detail-content p {
+  margin-bottom: 1.2rem;
+  color: var(--text-primary);
+}
+
+.project-detail-content strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.project-detail-content ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.project-detail-content li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+.project-detail-content li:before {
+  content: "•";
+  color: var(--primary-color);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* Responsive untuk modal content */
+.modal-body {
+  padding: 2.5rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.modal-body h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+/* Scrollbar styling untuk modal */
+.modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+
+/* Responsive untuk mobile */
+@media (max-width: 768px) {
+  .modal-body {
+    padding: 1.5rem;
+    max-height: 60vh;
+  }
+  
+  .modal-body h2 {
+    font-size: 1.8rem;
+  }
+  
+  .project-detail-content {
+    font-size: 1rem;
+  }
+}
+
+/* ===== CONTACT COMPACT LAYOUT ===== */
+.contact-content-compact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    .contact-content-compact {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Kolom Media Sosial */
+.media-social-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-card-compact {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-md);
+    height: 100%;
+}
+
+.contact-card-compact h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.contact-description {
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+/* Grid Media Sosial */
+.social-grid-compact {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.social-item-compact {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: var(--transition);
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.social-item-compact:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--primary-color);
+}
+
+.social-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 212, 255, 0.1);
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.social-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    overflow: hidden;
+}
+
+.social-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.social-value {
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Warna khusus untuk setiap media sosial */
+.social-item-compact.email:hover .social-icon {
+    background: rgba(234, 67, 53, 0.2);
+    color: #ea4335;
+}
+
+.social-item-compact.phone:hover .social-icon {
+    background: rgba(52, 168, 83, 0.2);
+    color: #34a853;
+}
+
+.social-item-compact.instagram:hover .social-icon {
+    background: rgba(225, 48, 108, 0.2);
+    color: #e1306c;
+}
+
+.social-item-compact.github:hover .social-icon {
+    background: rgba(24, 23, 23, 0.2);
+    color: #181717;
+}
+
+.social-item-compact.tiktok:hover .social-icon {
+    background: rgba(0, 0, 0, 0.2);
+    color: #000000;
+}
+
+/* Kolom Lokasi */
+.location-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.location-card-compact {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-md);
+    height: 100%;
+}
+
+.location-card-compact h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.location-description {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Map */
+.map-wrapper-compact {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+    transition: var(--transition);
+}
+
+.map-wrapper-compact:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.map-wrapper-compact iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+/* Detail Lokasi */
+.location-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.detail-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+
+.detail-item svg {
+    color: var(--primary-color);
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .contact-content-compact {
+        gap: 2rem;
+    }
+    
+    .contact-card-compact,
+    .location-card-compact {
+        padding: 2rem;
+    }
+    
+    .map-wrapper-compact {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-content-compact {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-card-compact,
+    .location-card-compact {
+        padding: 1.5rem;
+    }
+    
+    .social-item-compact {
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .social-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .map-wrapper-compact {
+        height: 200px;
+    }
+    
+    .location-card-compact h3,
+    .contact-card-compact h3 {
+        font-size: 1.5rem;
+    }
+}
