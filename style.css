@@ -2502,3 +2502,266 @@ section {
     font-size: 1rem;
   }
 }
+
+/* ===== CONTACT COMPACT LAYOUT ===== */
+.contact-content-compact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    .contact-content-compact {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Kolom Media Sosial */
+.media-social-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-card-compact {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-md);
+    height: 100%;
+}
+
+.contact-card-compact h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.contact-description {
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+/* Grid Media Sosial */
+.social-grid-compact {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.social-item-compact {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: var(--transition);
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.social-item-compact:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--primary-color);
+}
+
+.social-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 212, 255, 0.1);
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.social-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    overflow: hidden;
+}
+
+.social-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.social-value {
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Warna khusus untuk setiap media sosial */
+.social-item-compact.email:hover .social-icon {
+    background: rgba(234, 67, 53, 0.2);
+    color: #ea4335;
+}
+
+.social-item-compact.phone:hover .social-icon {
+    background: rgba(52, 168, 83, 0.2);
+    color: #34a853;
+}
+
+.social-item-compact.instagram:hover .social-icon {
+    background: rgba(225, 48, 108, 0.2);
+    color: #e1306c;
+}
+
+.social-item-compact.github:hover .social-icon {
+    background: rgba(24, 23, 23, 0.2);
+    color: #181717;
+}
+
+.social-item-compact.tiktok:hover .social-icon {
+    background: rgba(0, 0, 0, 0.2);
+    color: #000000;
+}
+
+/* Kolom Lokasi */
+.location-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.location-card-compact {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-md);
+    height: 100%;
+}
+
+.location-card-compact h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.location-description {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Map */
+.map-wrapper-compact {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+    transition: var(--transition);
+}
+
+.map-wrapper-compact:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.map-wrapper-compact iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+/* Detail Lokasi */
+.location-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.detail-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+
+.detail-item svg {
+    color: var(--primary-color);
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .contact-content-compact {
+        gap: 2rem;
+    }
+    
+    .contact-card-compact,
+    .location-card-compact {
+        padding: 2rem;
+    }
+    
+    .map-wrapper-compact {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-content-compact {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-card-compact,
+    .location-card-compact {
+        padding: 1.5rem;
+    }
+    
+    .social-item-compact {
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .social-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .map-wrapper-compact {
+        height: 200px;
+    }
+    
+    .location-card-compact h3,
+    .contact-card-compact h3 {
+        font-size: 1.5rem;
+    }
+}
